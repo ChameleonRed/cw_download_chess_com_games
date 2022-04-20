@@ -6,8 +6,8 @@ with open('README.md', 'r') as f:
 
 setup(
     name='cw_download_chess_com_games',
-    version='0.0.7',
-    url='',
+    version='1.0.0',
+    url='https://github.com/ChameleonRed/cw_download_chess_com_games',
     license='http://creativecommons.org/licenses/by-nc-nd/4.0',
     author='Cezary K. Wagner',
     author_email='Cezary.Wagner@gmail.com',
@@ -28,6 +28,7 @@ setup(
     ],
     description='Download all chess.com games.',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     package_dir={'': 'src'},
     packages=setuptools.find_packages(where='src'),
     python_requires='>=3.10',
