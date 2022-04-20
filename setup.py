@@ -6,11 +6,11 @@ with open('README.md', 'r') as f:
 
 setup(
     name='cw_download_chess_com_games',
-    version='0.1',
+    version='0.0.7',
     url='',
     license='http://creativecommons.org/licenses/by-nc-nd/4.0',
     author='Cezary K. Wagner',
-    author_email='',
+    author_email='Cezary.Wagner@gmail.com',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
@@ -26,14 +26,14 @@ setup(
         'Topic :: Games/Entertainment :: Board Games',
         'Topic :: Education',
     ],
-    description='Download all your chess games from chess.com.',
+    description='Download all chess.com games.',
     long_description=long_description,
     package_dir={'': 'src'},
     packages=setuptools.find_packages(where='src'),
     python_requires='>=3.10',
     entry_points={
         'console_scripts': [
-            'cw_download_chess_com_games = cw_download_chess_com_games:main'
+            'cw_download_chess_com_games = cw_download_chess_com_games.cw_download_chess_com_games:main'
         ]
     }
 )

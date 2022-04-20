@@ -36,12 +36,15 @@ def cached_json_get(url, cache_path):
 
 def main():
     args_parser = argparse.ArgumentParser(
-        description='Download all chess.com games into one file. '
-                    'File are stored in output directory in PGN format.',
-        epilog='Copyright 2022 by Cezary K. Wagner is licensed under '
-               'Attribution-NonCommercial-NoDerivatives 4.0 International')
-    args_parser.add_argument('-u', '--user_name', required=True, type=str, help='User name who was played games.')
-    args_parser.print_help()
+        description='Download all chess.com games. '
+                    'All games PGN file will be stored current or specified directory.',
+        epilog='Copyright 2022 by Cezary K. Wagner. Licensed under '
+               'Attribution-NonCommercial-NoDerivatives 4.0 International '
+               'http://creativecommons.org/licenses/by-nc-nd/4.0.')
+    args_parser.add_argument('-u', '--user_name', required=True, type=str,
+                             help='User name who was played games.')
+    args_parser.add_argument('-o', '--output_path', default=os.path.curdir, type=str,
+                             help='Work directory where output directory will be created.')
 
     args = args_parser.parse_args()
 
@@ -49,7 +52,7 @@ def main():
     url_games = f'https://api.chess.com/pub/player/{user_name}/games/archives'
 
     # create output
-    output_path = os.path.join(os.path.dirname(__file__), 'output')
+    output_path = os.path.join(args.output_path, 'output')
     os.makedirs(output_path, exist_ok=True)
 
     # create cache
