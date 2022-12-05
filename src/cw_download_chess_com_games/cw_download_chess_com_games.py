@@ -67,7 +67,8 @@ def main():
         json_data = cached_json_get(archive, cache_path)
 
         for game in json_data['games']:
-            pgns.append(game['pgn'])
+            if game['rules']=='chess':
+                pgns.append(game['pgn'])
 
     with open('all_pgn.pgn', 'w') as f:
         for pgn in pgns:
